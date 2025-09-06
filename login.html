@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InvestArmy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1b2a;
+        }
+        .glass-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <div class="min-h-screen flex items-center justify-center bg-gray-900/50">
+        <div class="max-w-md w-full p-8 glass-card rounded-xl text-center">
+            <a href="index.html" class="text-3xl font-bold flex items-center justify-center gap-2 mb-6">
+                <span>InvestArmy</span>
+                <span class="w-3.5 h-3.5 bg-orange-500 rounded-full"></span>
+            </a>
+            <h1 class="text-2xl font-bold mb-2">Sign in to InvestArmy</h1>
+            
+            <div class="mt-8">
+                <form action="profile-dashboard.html">
+                    <div class="relative mb-4 text-left">
+                        <label for="email" class="text-sm font-medium text-gray-400">Username or email address</label>
+                        <input type="email" name="email" id="email" value="trader-john@example.com" class="w-full mt-1 bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Username or email address">
+                    </div>
+                    <div class="relative mb-4 text-left">
+                         <div class="flex justify-between items-baseline">
+                            <label for="password" class="text-sm font-medium text-gray-400">Password</label>
+                            <a href="#" class="text-xs text-indigo-400 hover:underline">Forgot password?</a>
+                        </div>
+                        <input type="password" name="password" id="password" value="************" class="w-full mt-1 bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Password">
+                    </div>
+                    <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                        Sign in
+                    </button>
+                </form>
+
+                <div class="my-6 flex items-center">
+                    <div class="flex-grow border-t border-gray-700"></div>
+                    <span class="flex-shrink mx-4 text-gray-500 text-sm">or</span>
+                    <div class="flex-grow border-t border-gray-700"></div>
+                </div>
+
+                <a href="profile-dashboard.html" class="w-full flex justify-center items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-4 rounded-lg transition-colors">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25C22.56 11.42 22.49 10.62 22.36 9.85H12V14.5H18.19C17.93 15.99 17.11 17.26 15.82 18.1V20.72H19.52C21.46 18.91 22.56 16.03 22.56 12.25Z" fill="#4285F4"/>
+                        <path d="M12 23C14.97 23 17.45 22.02 19.52 20.72L15.82 18.1C14.79 18.77 13.48 19.15 12 19.15C9.05 19.15 6.56 17.1 5.48 14.43H1.7V17.02C3.67 20.62 7.5 23 12 23Z" fill="#34A853"/>
+                        <path d="M5.48 14.43C5.24 13.72 5.11 12.98 5.11 12.21C5.11 11.44 5.24 10.7 5.48 9.99V7.4H1.7C0.63 9.49 0 11.72 0 14.21C0 16.7 0.63 18.93 1.7 21L5.48 18.41V14.43Z" fill="#FBBC05"/>
+                        <path d="M12 5.14C13.63 5.14 15.08 5.76 16.14 6.77L19.6 3.32C17.45 1.27 14.97 0 12 0C7.5 0 3.67 2.38 1.7 5.98L5.48 8.57C6.56 5.9 9.05 3.85 12 3.85V5.14Z" fill="#EA4335"/>
+                    </svg>
+                    Continue with Google
+                </a>
+
+                <p class="text-sm text-gray-400 mt-8">
+                    New to InvestArmy? <a href="signup.html" class="font-semibold text-indigo-400 hover:underline">Create an account</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

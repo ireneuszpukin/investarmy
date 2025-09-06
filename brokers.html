@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Partner Brokers - InvestArmy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            background-image: linear-gradient(180deg, #000000 0%, #0d1b2a 50%, #1b2f47 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .scroll-target {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-target.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .action-col {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/50 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
+                <span>InvestArmy</span>
+                <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white transition">Contest</a>
+                <a href="brokers.html" class="text-indigo-400 font-semibold transition">Brokers</a>
+                <a href="leaderboard.html" class="text-gray-300 hover:text-white transition">Leaderboard</a>
+                <a href="index.html#faq" class="text-gray-300 hover:text-white transition">FAQ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="text-gray-300 hover:text-white transition hidden sm:block">Login</a>
+                <a href="signup.html" class="bg-indigo-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-indigo-500 transition-all duration-300 transform hover:-translate-y-0.5">GET $30 FREE</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Brokers List Section -->
+        <section id="all-brokers" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 scroll-target">All Partner Brokers</h1>
+                    <p class="text-gray-400 max-w-2xl mx-auto scroll-target" style="transition-delay: 100ms;">Explore all available brokers to find the perfect fit for your trading strategy in the InvestArmy contest.</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12 scroll-target" style="transition-delay: 200ms;">
+                    <button class="glass-card px-4 py-2 text-sm rounded-full border border-indigo-500 transition-colors">All Brokers</button>
+                    <button class="glass-card px-4 py-2 text-sm rounded-full border border-transparent hover:border-indigo-500 transition-colors">No Deposit Bonus</button>
+                    <button class="glass-card px-4 py-2 text-sm rounded-full border border-transparent hover:border-indigo-500 transition-colors">Low Spread</button>
+                    <button class="glass-card px-4 py-2 text-sm rounded-full border border-transparent hover:border-indigo-500 transition-colors">Regulated in EU</button>
+                </div>
+
+                <!-- Broker Table -->
+                <div class="glass-card rounded-xl p-4 md:p-8 scroll-target">
+                    <!-- Most Popular Section -->
+                    <div class="mb-12">
+                        <h2 class="text-2xl font-bold text-center mb-6 text-indigo-300 flex items-center justify-center gap-3"><span>🏆</span> Most Popular</h2>
+                        <div id="popular-brokers-container"></div>
+                    </div>
+                    
+                    <!-- Trending Brokers Section -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-center mb-6 text-gray-400 flex items-center justify-center gap-3"><span>🔥</span> Trending Brokers</h2>
+                        <div id="trending-brokers-container"></div>
+                        <div class="mt-8 text-center">
+                            <button id="load-more-btn" class="text-indigo-400 border border-indigo-400/50 px-6 py-2 rounded-full hover:bg-indigo-400/10 transition-colors">
+                                More Brokers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/20 border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div><h3 class="text-xl font-bold flex items-center gap-2 mb-4"><span>InvestArmy</span><span class="w-3 h-3 bg-orange-500 rounded-full"></span></h3><p class="text-gray-400">The ultimate trading contest platform for Forex & CFD traders worldwide.</p></div>
+                <div><h4 class="font-semibold text-lg mb-4">Contest</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Rules</a></li><li><a href="index.html#live-contest-hub" class="text-gray-400 hover:text-white">Leaderboard</a></li><li><a href="#" class="text-gray-400 hover:text-white">Prizes</a></li><li><a href="index.html#faq" class="text-gray-400 hover:text-white">FAQ</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Legal</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li><li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-white">Risk Disclaimer</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Support</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li><li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li></div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-white/10 pt-8">&copy; 2025 InvestArmy. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popularBrokersData = [
+                { rank: 1, name: 'XM', logo: 'XM', rating: 5, offer: '$30 No Deposit Bonus', desc: 'Start trading without any initial investment.' },
+                { rank: 2, name: 'IC Markets', logo: 'IC+Markets', rating: 5, offer: 'Spreads from 0.0 pips', desc: 'Minimize your trading costs with ultra-low spreads.' },
+                { rank: 3, name: 'FP Markets', logo: 'FP+Markets', rating: 4, offer: '100% Deposit Bonus', desc: 'Double your initial capital to maximize your potential.' },
+            ];
+            
+            const trendingBrokersData = [
+                { trend: 'up', name: 'Axiory', logo: 'Axiory', rating: 4, offer: '50% Deposit Bonus', desc: 'Get extra funds on your first deposit.' },
+                { trend: 'down', name: 'Pepperstone', logo: 'Pepperstone', rating: 5, offer: 'Razor Account', desc: 'Designed for professional traders.' },
+                { trend: 'up', name: 'Admiral Markets', logo: 'Admirals', rating: 4, offer: '$100 Welcome Bonus', desc: 'A solid bonus for new clients.' },
+                { trend: 'down', name: 'OANDA', logo: 'OANDA', rating: 5, offer: 'Core Spreads', desc: 'Reliable pricing from a trusted brand.' },
+                { trend: 'up', name: 'AvaTrade', logo: 'AvaTrade', rating: 4, offer: 'Fixed Spreads', desc: 'Predictable costs in volatile markets.' },
+                { trend: 'down', name: 'Plus500', logo: 'Plus500', rating: 4, offer: 'CFD Trading', desc: 'Wide range of CFD instruments.' },
+                { trend: 'up', name: 'Vantage FX', logo: 'Vantage', rating: 4, offer: 'Pro Trader Tools', desc: 'Advanced tools for serious traders.' },
+                { trend: 'none', name: 'Tickmill', logo: 'Tickmill', rating: 5, offer: 'Pro Account', desc: 'Low commissions and fast execution.' },
+                { trend: 'up', name: 'Eightcap', logo: 'Eightcap', rating: 4, offer: 'TradingView Integration', desc: 'Trade directly from TradingView charts.' },
+                { trend: 'none', name: 'HFM', logo: 'HFM', rating: 4, offer: '100% Supercharged Bonus', desc: 'Earn daily returns on your bonus.' },
+                { trend: 'up', name: 'Axiory', logo: 'Axiory', rating: 4, offer: '50% Deposit Bonus', desc: 'Get extra funds on your first deposit.' },
+                { trend: 'down', name: 'Pepperstone', logo: 'Pepperstone', rating: 5, offer: 'Razor Account', desc: 'Designed for professional traders.' },
+            ];
+
+            const popularContainer = document.getElementById('popular-brokers-container');
+            const trendingContainer = document.getElementById('trending-brokers-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            let itemsToShow = 10;
+
+            function createTableRow(broker, isPopular = false) {
+                const rankColor = broker.rank === 1 ? 'text-yellow-400' : broker.rank === 2 ? 'text-gray-300' : 'text-yellow-600';
+                const trendIcon = broker.trend === 'up' ? '▲' : broker.trend === 'down' ? '▼' : '—';
+                const trendColor = broker.trend === 'up' ? 'text-green-500' : broker.trend === 'down' ? 'text-red-500' : 'text-gray-500';
+                const buttonClass = isPopular ? 'bg-indigo-600 hover:bg-indigo-500' : 'bg-gray-700 hover:bg-gray-600';
+                
+                return `
+                    <tr class="hover:bg-white/5 transition-colors">
+                        <td class="p-4 w-16 text-center text-xl font-bold ${isPopular ? rankColor : trendColor}">${isPopular ? broker.rank + '.' : trendIcon}</td>
+                        <td class="p-4 w-32"><img src="https://placehold.co/120x60/000000/FFFFFF?text=${broker.logo}" alt="${broker.name} Logo" class="h-10 invert brightness-0"></td>
+                        <td class="p-4 w-40">
+                            <p class="font-semibold text-white">${broker.name}</p>
+                            <div class="text-yellow-400 text-sm">${'★'.repeat(broker.rating)}${'☆'.repeat(5 - broker.rating)}</div>
+                        </td>
+                        <td class="p-4">
+                            <p class="font-bold text-lg text-orange-500">${broker.offer}</p>
+                            <p class="text-xs text-gray-400">${broker.desc}</p>
+                            <a href="#" class="block text-xs text-gray-500 hover:text-gray-400 mt-1">T&Cs Apply</a>
+                        </td>
+                        <td class="p-4 w-28 text-center action-col"><a href="#" class="text-indigo-400 hover:text-indigo-300 text-sm">More</a></td>
+                        <td class="p-4 w-40 text-right action-col">
+                            <a href="#" class="inline-block text-center ${buttonClass} text-white py-2 px-4 rounded-md font-semibold transition-colors whitespace-nowrap">Open Account</a>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            function createMobileCard(broker, isPopular = false) {
+                 const trendIcon = broker.trend === 'up' ? '▲' : broker.trend === 'down' ? '▼' : '—';
+                 const trendColor = broker.trend === 'up' ? 'text-green-500' : broker.trend === 'down' ? 'text-red-500' : 'text-gray-500';
+                 const buttonClass = isPopular ? 'bg-indigo-600 hover:bg-indigo-500' : 'bg-gray-700 hover:bg-gray-600';
+
+                return `
+                    <div class="glass-card p-4 rounded-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 text-xl font-bold ${isPopular ? 'text-yellow-400' : trendColor}">${isPopular ? broker.rank+'.' : trendIcon}</div>
+                            <img src="https://placehold.co/120x60/000000/FFFFFF?text=${broker.logo}" alt="${broker.name} Logo" class="h-8 invert brightness-0 mr-4">
+                            <div>
+                                <p class="font-semibold text-white">${broker.name}</p>
+                                <div class="text-yellow-400 text-sm">${'★'.repeat(broker.rating)}${'☆'.repeat(5 - broker.rating)}</div>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/10 pt-4">
+                             <p class="font-bold text-lg text-orange-500">${broker.offer}</p>
+                             <p class="text-xs text-gray-400 mb-2">${broker.desc}</p>
+                             <a href="#" class="block text-xs text-gray-500 hover:text-gray-400 mb-4">T&Cs Apply</a>
+                             <div class="flex gap-4">
+                                <a href="#" class="flex-1 text-center text-indigo-400 py-2 rounded-md border border-indigo-400/50 hover:bg-indigo-400/10 transition-colors">More</a>
+                                <a href="#" class="flex-1 text-center ${buttonClass} text-white py-2 rounded-md font-semibold transition-colors">Open Account</a>
+                             </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderBrokers() {
+                let popularDesktopContent = '<div class="hidden lg:block"><table class="w-full text-left"><tbody class="divide-y divide-white/10">';
+                popularBrokersData.forEach(b => popularDesktopContent += createTableRow(b, true));
+                popularDesktopContent += '</tbody></table></div>';
+
+                let popularMobileContent = '<div class="lg:hidden space-y-4">';
+                popularBrokersData.forEach(b => popularMobileContent += createMobileCard(b, true));
+                popularMobileContent += '</div>';
+
+                popularContainer.innerHTML = popularDesktopContent + popularMobileContent;
+                
+                let trendingDesktopContent = '<div class="hidden lg:block"><table class="w-full text-left"><tbody class="divide-y divide-white/10">';
+                let trendingMobileContent = '<div class="lg:hidden space-y-4">';
+                for (let i = 0; i < trendingBrokersData.length; i++) {
+                    const isHidden = i >= itemsToShow;
+                    trendingDesktopContent += createTableRow(trendingBrokersData[i]).replace('<tr class="', `<tr class="${isHidden ? 'hidden' : ''} `);
+                    trendingMobileContent += createMobileCard(trendingBrokersData[i]).replace('<div class="', `<div class="${isHidden ? 'hidden' : ''} `);
+                }
+                trendingDesktopContent += '</tbody></table></div>';
+                trendingMobileContent += '</div>';
+                
+                trendingContainer.innerHTML = trendingDesktopContent + trendingMobileContent;
+
+                if (itemsToShow >= trendingBrokersData.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            }
+
+            loadMoreBtn.addEventListener('click', () => {
+                itemsToShow += 10;
+                renderBrokers();
+            });
+
+            renderBrokers();
+
+            // On-Scroll Animations
+            const scrollTargets = document.querySelectorAll('.scroll-target');
+            const observerScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            scrollTargets.forEach(target => {
+                observerScroll.observe(target);
+            });
+        });
+    </script>
+</body>
+</html>

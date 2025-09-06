@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Your Account - InvestArmy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            background-image: linear-gradient(180deg, #000000 0%, #0d1b2a 50%, #1b2f47 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            border-color: #4f46e5;
+            outline: none;
+        }
+        .form-input-filled {
+             background-color: rgba(79, 70, 229, 0.1);
+             border-color: rgba(79, 70, 229, 0.3);
+        }
+        .step-card {
+            transition: all 0.3s ease-in-out;
+        }
+        .step-card.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .verification-form {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease-in-out;
+        }
+        .verification-form.active {
+            max-height: 300px;
+            margin-top: 1rem;
+        }
+        .spinner {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/50 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
+                <span>InvestArmy</span>
+                <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
+            </a>
+             <div class="flex items-center gap-4">
+                <span class="text-sm text-gray-400">Welcome, trader-john!</span>
+                <img src="https://i.pravatar.cc/40?u=trader-john" alt="avatar" class="w-10 h-10 rounded-full border-2 border-indigo-500">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="profile-activation" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Complete Your Contest Setup</h1>
+                    <p class="text-gray-400 max-w-2xl mx-auto">You're almost ready to join the <span class="text-orange-500 font-semibold">Summer 2025</span> edition. Just two more steps.</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto space-y-8">
+                    <!-- Step 1: Choose Broker -->
+                    <div id="step-1" class="glass-card p-8 rounded-xl step-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div id="step-1-indicator" class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-600 text-white font-bold text-xl transition-colors">1</div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Choose & Authorize Your Broker</h2>
+                                <p class="text-gray-400">Select one of our recommended partners.</p>
+                            </div>
+                        </div>
+                        <div class="space-y-4" id="broker-options">
+                            <div class="glass-card p-4 rounded-lg border-2 border-indigo-500">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-4">
+                                        <img src="https://placehold.co/80x40/000000/FFFFFF?text=XM" alt="XM Logo" class="h-8 invert brightness-0">
+                                        <span class="font-semibold">XM ($30 Bonus)</span>
+                                    </div>
+                                    <button data-broker="XM" class="bg-indigo-600 text-white py-2 px-4 rounded-md font-semibold hover:bg-indigo-500 transition-colors">Open Account</button>
+                                </div>
+                            </div>
+                             <div class="glass-card p-4 rounded-lg border-2 border-transparent hover:border-indigo-500/50">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-4">
+                                        <img src="https://placehold.co/80x40/000000/FFFFFF?text=XTB" alt="XTB Logo" class="h-8 invert brightness-0">
+                                        <span class="font-semibold">XTB (0% Commission)</span>
+                                    </div>
+                                    <button data-broker="XTB" class="bg-gray-700 text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-600 transition-colors">Open Account</button>
+                                </div>
+                            </div>
+                            <div class="glass-card p-4 rounded-lg border-2 border-transparent hover:border-indigo-500/50">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-4">
+                                        <img src="https://placehold.co/80x40/000000/FFFFFF?text=FP+Markets" alt="FP Markets Logo" class="h-8 invert brightness-0">
+                                        <span class="font-semibold">FP Markets (Fast Execution)</span>
+                                    </div>
+                                    <button data-broker="FP Markets" class="bg-gray-700 text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-600 transition-colors">Open Account</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-6">
+                            <a href="brokers.html" class="text-sm text-indigo-400 hover:underline">See all partner brokers</a>
+                        </div>
+                    </div>
+
+                    <!-- Container for dynamically added Link Account sections -->
+                    <div id="link-account-sections" class="space-y-8"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black/20 border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div><h3 class="text-xl font-bold flex items-center gap-2 mb-4"><span>InvestArmy</span><span class="w-3 h-3 bg-orange-500 rounded-full"></span></h3><p class="text-gray-400">The ultimate trading contest platform for Forex & CFD traders worldwide.</p></div>
+                <div><h4 class="font-semibold text-lg mb-4">Contest</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Rules</a></li><li><a href="leaderboard.html" class="text-gray-400 hover:text-white">Leaderboard</a></li><li><a href="#" class="text-gray-400 hover:text-white">Prizes</a></li><li><a href="index.html#faq" class="text-gray-400 hover:text-white">FAQ</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Legal</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li><li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-white">Risk Disclaimer</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Support</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li><li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li></div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-white/10 pt-8">&copy; 2025 InvestArmy. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const brokerOptions = document.getElementById('broker-options');
+            const linkAccountSectionsContainer = document.getElementById('link-account-sections');
+            let linkAccountCounter = 0;
+
+            brokerOptions.addEventListener('click', function(e) {
+                if (e.target.tagName === 'BUTTON' && !e.target.disabled) {
+                    const brokerName = e.target.dataset.broker;
+                    const parentCard = e.target.closest('.glass-card');
+                    
+                    e.target.remove();
+
+                    const verificationFormHTML = `
+                        <div class="verification-form">
+                            <p class="text-sm font-semibold text-indigo-400 mb-2">Please verify your new ${brokerName} account:</p>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="text-xs text-gray-400">Account Number</label>
+                                    <input type="text" value="10528896" class="form-input-filled w-full px-3 py-2 text-sm rounded-lg mt-1 cursor-not-allowed" readonly>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-400">Email</label>
+                                    <input type="email" value="your.email@gmail.com" class="form-input-filled w-full px-3 py-2 text-sm rounded-lg mt-1 cursor-not-allowed" readonly>
+                                </div>
+                                <button data-broker-name="${brokerName}" class="verify-btn w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">Verify</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    parentCard.insertAdjacentHTML('beforeend', verificationFormHTML);
+                    
+                    setTimeout(() => {
+                        const form = parentCard.querySelector('.verification-form');
+                        form.classList.add('active');
+                    }, 10);
+
+                    const verifyBtn = parentCard.querySelector('.verify-btn');
+                    verifyBtn.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        verifyBtn.innerHTML = '<div class="spinner"></div>';
+                        verifyBtn.disabled = true;
+
+                        setTimeout(() => {
+                            verifyBtn.innerHTML = 'Verified!';
+                            
+                            setTimeout(() => {
+                                parentCard.querySelector('.verification-form').style.maxHeight = '0';
+                                parentCard.classList.remove('border-indigo-500');
+                                parentCard.classList.add('border-green-500');
+                                
+                                createLinkAccountSection(brokerName);
+
+                            }, 500);
+
+                        }, 1500);
+                    });
+                }
+            });
+
+            function createLinkAccountSection(brokerName) {
+                linkAccountCounter++;
+                const sectionId = `step-${linkAccountCounter}-${brokerName.replace(/\s+/g, '-')}`;
+                if (document.getElementById(sectionId)) return;
+
+                const linkAccountSectionHTML = `
+                    <div id="${sectionId}" class="glass-card p-8 rounded-xl step-card">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-600 text-white font-bold text-xl transition-colors">${linkAccountCounter + 1}</div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Link Your ${brokerName} Account</h2>
+                                <p class="text-gray-400">Enter your broker account details to sync with the contest.</p>
+                            </div>
+                        </div>
+                        <form action="profile-dashboard.html" method="GET" class="space-y-4">
+                            <div>
+                                <label for="account-id-${sectionId}" class="block text-sm font-medium text-gray-300">Trading Account ID</label>
+                                <input type="text" id="account-id-${sectionId}" value="10528896" class="form-input-filled w-full px-3 py-2 rounded-lg mt-1 cursor-not-allowed" readonly>
+                            </div>
+                            <div>
+                                <label for="account-password-${sectionId}" class="block text-sm font-medium text-gray-300">Password</label>
+                                <input type="password" id="account-password-${sectionId}" value="••••••••" class="form-input-filled w-full px-3 py-2 rounded-lg mt-1 cursor-not-allowed" readonly>
+                            </div>
+                            <div>
+                                <label for="account-server-${sectionId}" class="block text-sm font-medium text-gray-300">Server</label>
+                                <input type="text" id="account-server-${sectionId}" value="${brokerName.split(' ')[0]}Global-Real25" class="form-input-filled w-full px-3 py-2 rounded-lg mt-1 cursor-not-allowed" readonly>
+                            </div>
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">Authorize & Join Contest</button>
+                        </form>
+                    </div>
+                `;
+                linkAccountSectionsContainer.insertAdjacentHTML('beforeend', linkAccountSectionHTML);
+            }
+        });
+    </script>
+</body>
+</html>

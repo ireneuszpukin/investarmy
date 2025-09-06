@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestArmy - #1 World Trading Contest</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #000000; background-image: linear-gradient(180deg, #000000 0%, #0d1b2a 50%, #1b2f47 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .prize-flash { animation: flash 0.5s ease-in-out; }
+        @keyframes flash { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; padding-top: 0; padding-bottom: 0; }
+        .faq-item.open .faq-answer { max-height: 200px; padding-top: 1rem; padding-bottom: 1rem; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        .scroll-target { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .scroll-target.visible { opacity: 1; transform: translateY(0); }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .blinking-dot { animation: blink 1.5s infinite; }
+        .stats-section { position: relative; background-color: #111827; }
+        .stats-section::before, .stats-section::after { content: ''; position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #4f46e5, #f97316, transparent); opacity: 0.5; }
+        .stats-section::before { top: 0; }
+        .stats-section::after { bottom: 0; }
+        .broker-logo { object-fit: contain; }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
+                <span>InvestArmy</span>
+                <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition">Contest</a>
+                <a href="brokers.html" class="text-gray-300 hover:text-white transition">Brokers</a>
+                <a href="leaderboard.html" class="text-gray-300 hover:text-white transition">Leaderboard</a>
+                <a href="#faq" class="text-gray-300 hover:text-white transition">FAQ</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="login.html" class="text-gray-300 hover:text-white transition hidden sm:block">Login</a>
+                <a href="signup.html" class="bg-indigo-600 text-white px-5 py-2 rounded-md font-semibold hover:bg-indigo-500 transition-all duration-300 transform hover:-translate-y-0.5">GET $30 FREE</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="min-h-screen flex flex-col">
+            <div class="flex-grow flex items-center justify-center text-center pt-24">
+                <div class="container mx-auto px-4">
+                    <div class="inline-block glass-card border border-indigo-500/50 rounded-full px-4 py-2 mb-6 scroll-target">
+                        <p class="text-indigo-300 font-semibold flex items-center gap-2">
+                            <span>🏆</span>
+                            <span>#1 WORLD TRADING CONTEST</span>
+                        </p>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 scroll-target" style="transition-delay: 100ms;">
+                        <span>Trade and Win the</span><br>
+                        <span id="prize-pool" class="text-orange-500 text-5xl md:text-7xl lg:text-8xl transition-all duration-300">
+                            +$1,000
+                        </span>
+                        <span> Prize Pool</span>
+                    </h1>
+                    <p class="max-w-2xl mx-auto text-gray-300 text-lg mb-8 scroll-target" style="transition-delay: 200ms;">
+                        InvestArmy is where traders prove their skills and win real cash prizes. The prize pool grows with the number of participants. Join now and claim your throne!
+                    </p>
+                    <a href="signup.html" class="bg-indigo-500 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transform hover:-translate-y-1 transition-transform duration-300 shadow-lg shadow-indigo-500/30 scroll-target" style="transition-delay: 300ms;">
+                        START WITH $30 FREE
+                    </a>
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mt-8 text-gray-400 text-sm scroll-target" style="transition-delay: 400ms;">
+                        <div class="flex items-center gap-2"><span>🛡️</span><span>Your Capital, Your Broker</span></div>
+                        <div class="flex items-center gap-2"><span>✅</span><span>Zero Fees to Participate</span></div>
+                        <div class="flex items-center gap-2"><span>📈</span><span>Real Market, Not Prop Trading</span></div>
+                    </div>
+                </div>
+            </div>
+            <div id="stats" class="py-8 stats-section mt-12">
+                <div class="container mx-auto px-4 text-center">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                        <div class="scroll-target"><p class="text-4xl font-bold text-orange-500">$1,001,029</p><p class="text-gray-400 mt-2">Highest Payout</p></div>
+                        <div class="scroll-target" style="transition-delay: 100ms;"><p class="text-4xl font-bold text-indigo-400">15,000+</p><p class="text-gray-400 mt-2">Total Participants</p></div>
+                        <div class="scroll-target" style="transition-delay: 200ms;"><p class="text-4xl font-bold text-white">2,583</p><p class="text-gray-400 mt-2">Current Competitors</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-contest-hub" class="py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-center mb-4 scroll-target">The <span class="text-orange-500">Summer 2025</span> Edition is Live!</h2>
+                <p id="countdown-title" class="text-indigo-400 font-semibold mb-8 scroll-target">TIME LEFT IN PRE-CONTEST PERIOD</p>
+                <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8 scroll-target">
+                    <div><div id="countdown-days" class="text-4xl md:text-6xl font-bold bg-white/10 rounded-lg p-4">00</div><div class="text-xs text-gray-400 mt-2">DAYS</div></div>
+                    <div class="text-4xl md:text-6xl font-thin text-gray-500">:</div>
+                    <div><div id="countdown-hours" class="text-4xl md:text-6xl font-bold bg-white/10 rounded-lg p-4">00</div><div class="text-xs text-gray-400 mt-2">HOURS</div></div>
+                    <div class="text-4xl md:text-6xl font-thin text-gray-500">:</div>
+                    <div><div id="countdown-minutes" class="text-4xl md:text-6xl font-bold bg-white/10 rounded-lg p-4">00</div><div class="text-xs text-gray-400 mt-2">MINUTES</div></div>
+                    <div class="text-4xl md:text-6xl font-thin text-gray-500">:</div>
+                    <div><div id="countdown-seconds" class="text-4xl md:text-6xl font-bold bg-white/10 rounded-lg p-4">00</div><div class="text-xs text-gray-400 mt-2">SECONDS</div></div>
+                </div>
+                <p class="text-gray-500 text-sm max-w-2xl mx-auto mb-12 scroll-target">*The <span class="font-semibold">Pre-Contest Period (July-August)</span> is for funding your account. The final <span class="font-semibold">Contest Month is September.</span>*</p>
+                
+                <div class="glass-card rounded-xl p-4 md:p-8 scroll-target">
+                    <div class="hidden lg:block">
+                        <table class="w-full text-left">
+                             <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="p-4 font-semibold text-gray-400 w-20">Rank</th>
+                                    <th class="p-4 font-semibold text-gray-400">Trader</th>
+                                    <th class="p-4 font-semibold text-gray-400">Status</th>
+                                    <th class="p-4 font-semibold text-gray-400">Deposit</th>
+                                    <th class="p-4 font-semibold text-gray-400">P/L (%)</th>
+                                    <th class="p-4 font-semibold text-gray-400">Account ($)</th>
+                                    <th class="p-4 font-semibold text-gray-400 text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboard-body-desktop"></tbody>
+                        </table>
+                    </div>
+                    <div class="block lg:hidden space-y-4" id="leaderboard-body-mobile">
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="signup.html" class="bg-indigo-500 text-white px-8 py-4 rounded-lg font-bold text-lg inline-block transform hover:-translate-y-1 transition-transform duration-300 shadow-lg shadow-indigo-500/30">
+                        START WITH $30 FREE*
+                    </a>
+                    <p class="text-gray-500 text-xs mt-2">*for new XM clients only</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-to-start" class="py-20 bg-black/20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 scroll-target">Start in 3 Simple Steps</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 max-w-5xl mx-auto">
+                    <div class="text-center scroll-target"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">📝</span></div><h3 class="text-xl font-bold mb-2">01. Register & Get Bonus</h3><p class="text-gray-400">Open an account with our partner broker and claim your $30 welcome bonus.</p></div>
+                    <div class="text-center scroll-target" style="transition-delay: 150ms;"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">🛡️</span></div><h3 class="text-xl font-bold mb-2">02. Verify & Fund</h3><p class="text-gray-400">Complete the secure verification and fund your account to officially enter the contest.</p></div>
+                    <div class="text-center scroll-target" style="transition-delay: 300ms;"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">🏆</span></div><h3 class="text-xl font-bold mb-2">03. Compete & Win</h3><p class="text-gray-400">Trade your strategy, climb the leaderboard, and compete for the grand prize pool.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="weekly-prizes" class="py-12 bg-indigo-900/20">
+             <div class="container mx-auto px-4 text-center">
+                <p class="text-3xl font-bold scroll-target">🏆 Win <span class="text-orange-500">+$100</span> Every Friday!</p>
+                <p class="text-gray-400 mt-2 max-w-xl mx-auto scroll-target">During the Pre-Contest period, the trader with the best performance of the week wins a bonus prize. The main prize pool grows with every new competitor.</p>
+            </div>
+        </section>
+
+        <section id="brokers" class="py-20">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 scroll-target">Top 3 Recommended Brokers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative"><span class="absolute top-4 right-4 bg-indigo-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#1</span>
+                        <img src="xm_logo.png" alt="XM Logo" class="h-10 mx-auto mb-6 broker-logo">
+                        <p class="text-white font-semibold text-lg">XM</p><p class="text-3xl font-bold my-4 text-orange-500">$30 Bonus</p><p class="text-gray-400 text-sm flex-grow mb-6">No deposit required for new clients. Start trading with a free bonus.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
+                    <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative" style="transition-delay: 150ms;"><span class="absolute top-4 right-4 bg-gray-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#2</span>
+                        <img src="icmarkets_logo.png" alt="IC Markets Logo" class="h-10 mx-auto mb-6 broker-logo">
+                        <p class="text-white font-semibold text-lg">IC Markets</p><p class="text-3xl font-bold my-4 text-orange-500">Low Spreads</p><p class="text-gray-400 text-sm flex-grow mb-6">Benefit from raw spreads starting from 0.0 pips on major pairs.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
+                    <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative" style="transition-delay: 300ms;"><span class="absolute top-4 right-4 bg-gray-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#3</span>
+                        <img src="fpmarkets_logo.png" alt="FP Markets Logo" class="h-10 mx-auto mb-6 broker-logo">
+                        <p class="text-white font-semibold text-lg">FP Markets</p><p class="text-3xl font-bold my-4 text-orange-500">Fast Execution</p><p class="text-gray-400 text-sm flex-grow mb-6">Experience ultra-fast trade execution with Equinix NY4 servers.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="brokers.html" class="text-indigo-400 font-semibold hover:text-white transition-colors">See all 10+ partner brokers →</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-4xl font-bold text-center mb-12 scroll-target">Frequently Asked Questions</h2>
+                <div class="space-y-4 scroll-target" id="faq-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black/20 border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div><h3 class="text-xl font-bold flex items-center gap-2 mb-4"><span>InvestArmy</span><span class="w-3 h-3 bg-orange-500 rounded-full"></span></h3><p class="text-gray-400">The ultimate trading contest platform for Forex & CFD traders worldwide.</p></div>
+                <div><h4 class="font-semibold text-lg mb-4">Contest</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Rules</a></li><li><a href="leaderboard.html" class="text-gray-400 hover:text-white">Leaderboard</a></li><li><a href="#" class="text-gray-400 hover:text-white">Prizes</a></li><li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Legal</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li><li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li><li><a href="#" class="text-gray-400 hover:text-white">Risk Disclaimer</a></li></ul></div>
+                <div><h4 class="font-semibold text-lg mb-4">Support</h4><ul class="space-y-2"><li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li><li><a href="#" class="text-gray-400 hover:text-white">Help Center</a></li></div>
+            </div>
+            <div class="text-center text-gray-500 border-t border-white/10 pt-8">
+                <div class="text-xs mb-4">
+                    <p>This service is not intended for residents of the European Union or the United States.</p>
+                    <a href="#" class="underline hover:text-white">Want to know more?</a>
+                </div>
+                &copy; 2025 InvestArmy. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const prizePoolEl = document.getElementById('prize-pool');
+            let currentPrize = 1000;
+            const prizeInterval = setInterval(() => {
+                currentPrize += Math.random() * 0.15 + 0.05; // Increment by 5-20 cents
+                prizePoolEl.textContent = '+$' + currentPrize.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                prizePoolEl.classList.add('prize-flash');
+                setTimeout(() => prizePoolEl.classList.remove('prize-flash'), 500);
+            }, 2000);
+
+            const countdownTitle = document.getElementById('countdown-title');
+            const contestStartDate = new Date("Sep 1, 2025 00:00:00");
+            const contestEndDate = new Date("Sep 30, 2025 23:59:59");
+
+            const countdownInterval = setInterval(function() {
+                const now = new Date();
+                let targetDate;
+                
+                if (now < contestStartDate) {
+                    targetDate = contestStartDate;
+                    countdownTitle.textContent = "TIME LEFT IN PRE-CONTEST PERIOD";
+                } else {
+                    targetDate = contestEndDate;
+                    countdownTitle.textContent = "TIME LEFT IN CONTEST";
+                }
+
+                const distance = targetDate.getTime() - now.getTime();
+
+                if (distance < 0) {
+                     document.getElementById("countdown-days").innerText = "00";
+                     document.getElementById("countdown-hours").innerText = "00";
+                     document.getElementById("countdown-minutes").innerText = "00";
+                     document.getElementById("countdown-seconds").innerText = "00";
+                     if (now > contestEndDate) {
+                        countdownTitle.textContent = "CONTEST HAS ENDED";
+                        clearInterval(countdownInterval);
+                     }
+                     return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown-days").innerText = String(days).padStart(2, '0');
+                document.getElementById("countdown-hours").innerText = String(hours).padStart(2, '0');
+                document.getElementById("countdown-minutes").innerText = String(minutes).padStart(2, '0');
+                document.getElementById("countdown-seconds").innerText = String(seconds).padStart(2, '0');
+            }, 1000);
+
+            const leaderboardData = [
+                { rank: 1, nickname: 'PipHunter', deposit: 250, profit: 255.7, isOnline: true },
+                { rank: 2, nickname: 'ForexMaster', deposit: 5000, profit: 198.2, isOnline: false },
+                { rank: 3, nickname: 'ScalpQueen', deposit: 1000, profit: 155.1, isOnline: true },
+                { rank: 4, nickname: 'TrendRider', deposit: 2500, profit: 120.5, isOnline: false },
+                { rank: 5, nickname: 'CryptoKing', deposit: 9500, profit: 112.4, isOnline: true },
+                { rank: 6, nickname: 'GoldDigger', deposit: 7500, profit: 98.9, isOnline: false },
+                { rank: 7, nickname: 'SwingTraderX', deposit: 500, profit: 85.3, isOnline: true },
+                { rank: 8, nickname: 'DayTraderPro', deposit: 1500, profit: 72.8, isOnline: false },
+            ];
+
+            const desktopBody = document.getElementById('leaderboard-body-desktop');
+            const mobileBody = document.getElementById('leaderboard-body-mobile');
+            
+            desktopBody.innerHTML = '';
+            mobileBody.innerHTML = '';
+
+            leaderboardData.forEach(trader => {
+                const accountValue = trader.deposit * (1 + trader.profit / 100);
+                const rankColor = trader.rank === 1 ? 'text-yellow-400' : trader.rank === 2 ? 'text-gray-300' : trader.rank === 3 ? 'text-yellow-600' : '';
+                const liveIndicator = trader.isOnline ? `<div class="flex items-center gap-2 text-red-400"><span class="w-2 h-2 bg-red-500 rounded-full blinking-dot"></span>Live</div>` : `<div class="flex items-center gap-2 text-gray-500"><span class="w-2 h-2 bg-gray-600 rounded-full"></span>Offline</div>`;
+                
+                desktopBody.innerHTML += `
+                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                        <td class="p-4 font-bold text-lg ${rankColor}">${trader.rank}</td>
+                        <td class="p-4"><div class="flex items-center space-x-3"><img src="https://i.pravatar.cc/40?u=${trader.nickname}" alt="avatar" class="w-10 h-10 rounded-full"><div><p class="font-semibold">${trader.nickname}</p></div></div></td>
+                        <td class="p-4 text-xs font-semibold">${liveIndicator}</td>
+                        <td class="p-4 font-medium">$${trader.deposit.toLocaleString()}</td>
+                        <td class="p-4 font-semibold text-green-400 text-lg">+${trader.profit.toFixed(1)}%</td>
+                        <td class="p-4 font-semibold">$${accountValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                        <td class="p-4 text-center"><a href="leaderboard.html" class="text-xs bg-gray-600 hover:bg-gray-500 text-white px-3 py-1.5 rounded-md transition-colors w-full inline-block">More</a></td>
+                    </tr>`;
+
+                mobileBody.innerHTML += `
+                    <div class="border border-white/10 rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="font-bold text-2xl ${rankColor}">#${trader.rank}</span>
+                                <img src="https://i.pravatar.cc/40?u=${trader.nickname}" alt="avatar" class="w-10 h-10 rounded-full">
+                                <div><p class="font-semibold">${trader.nickname}</p></div>
+                            </div>
+                            ${liveIndicator}
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div><p class="text-xs text-gray-400">P/L (%)</p><p class="font-semibold text-green-400 text-lg mt-1">+${trader.profit.toFixed(1)}%</p></div>
+                            <div><p class="text-xs text-gray-400">Account ($)</p><p class="font-semibold mt-1">$${accountValue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p></div>
+                            <div><p class="text-xs text-gray-400">Deposit ($)</p><p class="font-semibold mt-1">$${trader.deposit.toLocaleString()}</p></div>
+                        </div>
+                        <a href="leaderboard.html" class="mt-4 text-sm bg-gray-600 hover:bg-gray-500 text-white py-2 rounded-md transition-colors w-full inline-block">More</a>
+                    </div>`;
+            });
+
+            const faqData = [
+                { q: "How do I join the contest?", a: "Simply click the 'Register' button, connect your trading account from one of our partner brokers, and make the minimum required deposit. You will be automatically entered into the current contest round." },
+                { q: "What is the minimum deposit?", a: "The minimum deposit to participate is $100. This ensures a fair and competitive environment for all traders." },
+                { q: "How is the winner determined?", a: "The winner is the trader with the highest percentage profit at the end of the contest period. The leaderboard is updated in real-time." },
+                { q: "Are there any registration fees?", a: "No, there are no registration fees to join InvestArmy. You only need to fund your own trading account with the minimum deposit." },
+            ];
+            const faqContainer = document.getElementById('faq-container');
+            faqData.forEach(item => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'faq-item glass-card rounded-lg border border-transparent hover:border-indigo-500 transition-colors';
+                faqItem.innerHTML = `<div class="faq-question flex justify-between items-center p-5 cursor-pointer"><h3 class="font-semibold text-lg">${item.q}</h3><div class="faq-icon text-2xl text-indigo-400 transform transition-transform duration-300">+</div></div><div class="faq-answer px-5 text-gray-300"><p>${item.a}</p></div>`;
+                faqContainer.appendChild(faqItem);
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.addEventListener('click', () => item.parentElement.classList.toggle('open'));
+            });
+
+            const header = document.getElementById('header');
+            const observerHeader = new IntersectionObserver(([e]) => {
+                header.classList.toggle('bg-black/50', e.intersectionRatio < 1);
+                header.classList.toggle('backdrop-blur-sm', e.intersectionRatio < 1);
+            }, { threshold: [1] });
+            if (document.querySelector('#home')) observerHeader.observe(document.querySelector('#home'));
+
+            const scrollTargets = document.querySelectorAll('.scroll-target');
+            const observerScroll = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            scrollTargets.forEach(target => observerScroll.observe(target));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
