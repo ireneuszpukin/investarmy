@@ -25,7 +25,14 @@
         .stats-section::before, .stats-section::after { content: ''; position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #4f46e5, #f97316, transparent); opacity: 0.5; }
         .stats-section::before { top: 0; }
         .stats-section::after { bottom: 0; }
-        .broker-logo { object-fit: contain; }
+        .broker-logo { 
+            object-fit: contain;
+            border-bottom: 3px solid transparent;
+            padding-bottom: 4px;
+        }
+        .broker-logo.xm-red { border-color: #c8102e; }
+        .broker-logo.xtb-red { border-color: #c40000; }
+        .broker-logo.roboforex-white { border-color: #ffffff; }
     </style>
 </head>
 <body class="text-white antialiased">
@@ -82,9 +89,9 @@
             <div id="stats" class="py-8 stats-section mt-12">
                 <div class="container mx-auto px-4 text-center">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <div class="scroll-target"><p class="text-4xl font-bold text-orange-500">$1,001,029</p><p class="text-gray-400 mt-2">Highest Payout</p></div>
-                        <div class="scroll-target" style="transition-delay: 100ms;"><p class="text-4xl font-bold text-indigo-400">15,000+</p><p class="text-gray-400 mt-2">Total Participants</p></div>
-                        <div class="scroll-target" style="transition-delay: 200ms;"><p class="text-4xl font-bold text-white">2,583</p><p class="text-gray-400 mt-2">Current Competitors</p></div>
+                        <div class="scroll-target"><p class="text-4xl font-bold text-orange-500">$10,245</p><p class="text-gray-400 mt-2">Highest Payout</p></div>
+                        <div class="scroll-target" style="transition-delay: 100ms;"><p class="text-4xl font-bold text-indigo-400">3,150+</p><p class="text-gray-400 mt-2">Total Participants</p></div>
+                        <div class="scroll-target" style="transition-delay: 200ms;"><p class="text-4xl font-bold text-white">789</p><p class="text-gray-400 mt-2">Current Competitors</p></div>
                     </div>
                 </div>
             </div>
@@ -138,17 +145,59 @@
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl font-bold text-center mb-12 scroll-target">Start in 3 Simple Steps</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 max-w-5xl mx-auto">
-                    <div class="text-center scroll-target"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">📝</span></div><h3 class="text-xl font-bold mb-2">01. Register & Get Bonus</h3><p class="text-gray-400">Open an account with our partner broker and claim your $30 welcome bonus.</p></div>
-                    <div class="text-center scroll-target" style="transition-delay: 150ms;"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">🛡️</span></div><h3 class="text-xl font-bold mb-2">02. Verify & Fund</h3><p class="text-gray-400">Complete the secure verification and fund your account to officially enter the contest.</p></div>
-                    <div class="text-center scroll-target" style="transition-delay: 300ms;"><div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50"><span class="text-3xl">🏆</span></div><h3 class="text-xl font-bold mb-2">03. Compete & Win</h3><p class="text-gray-400">Trade your strategy, climb the leaderboard, and compete for the grand prize pool.</p></div>
+                    <div class="text-center scroll-target">
+                        <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50">
+                            <span class="text-3xl font-bold text-white">1</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center gap-2"><span>📝</span> Register & Get Bonus</h3>
+                        <p class="text-gray-400">Open an account with our partner broker and claim your $30 welcome bonus.</p>
+                    </div>
+                    <div class="text-center scroll-target" style="transition-delay: 150ms;">
+                        <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50">
+                            <span class="text-3xl font-bold text-white">2</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center gap-2"><span>🛡️</span> Verify & Fund</h3>
+                        <p class="text-gray-400">Complete the secure verification and fund your account to officially enter the contest.</p>
+                    </div>
+                    <div class="text-center scroll-target" style="transition-delay: 300ms;">
+                        <div class="flex items-center justify-center w-20 h-20 mx-auto mb-4 rounded-full bg-indigo-500/20 border border-indigo-500/50">
+                            <span class="text-3xl font-bold text-white">3</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 flex items-center justify-center gap-2"><span>🏆</span> Compete & Win</h3>
+                        <p class="text-gray-400">Trade your strategy, climb the leaderboard, and compete for the grand prize pool.</p>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <section id="weekly-prizes" class="py-12 bg-indigo-900/20">
+        <section id="weekly-prizes" class="py-20">
              <div class="container mx-auto px-4 text-center">
                 <p class="text-3xl font-bold scroll-target">🏆 Win <span class="text-orange-500">+$100</span> Every Friday!</p>
-                <p class="text-gray-400 mt-2 max-w-xl mx-auto scroll-target">During the Pre-Contest period, the trader with the best performance of the week wins a bonus prize. The main prize pool grows with every new competitor.</p>
+                <p class="text-gray-400 mt-2 max-w-2xl mx-auto scroll-target">During the Pre-Contest period, the trader with the best performance of the week wins a bonus prize. The main prize pool grows with every new competitor.</p>
+                
+                <div class="glass-card rounded-xl p-4 md:p-8 scroll-target mt-8 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-6 text-indigo-300">Recent Pre-Contest Winners</h3>
+                     <div class="hidden lg:block">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="border-b border-white/10">
+                                    <th class="p-4 font-semibold text-gray-400">Week</th>
+                                    <th class="p-4 font-semibold text-gray-400">Winner</th>
+                                    <th class="p-4 font-semibold text-gray-400">Deposit</th>
+                                    <th class="p-4 font-semibold text-gray-400">Profit</th>
+                                    <th class="p-4 font-semibold text-gray-400">Prize</th>
+                                </tr>
+                            </thead>
+                            <tbody id="weekly-winners-desktop"></tbody>
+                        </table>
+                    </div>
+                    <div class="block lg:hidden space-y-4" id="weekly-winners-mobile"></div>
+                </div>
+                <div class="mt-12 text-center scroll-target">
+                    <a href="signup.html" class="text-indigo-400 font-semibold hover:text-white transition-colors">
+                        Join to See All Winners &rarr;
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -157,14 +206,14 @@
                 <h2 class="text-4xl font-bold text-center mb-12 scroll-target">Top 3 Recommended Brokers</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative"><span class="absolute top-4 right-4 bg-indigo-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#1</span>
-                        <img src="xm_logo.png" alt="XM Logo" class="h-10 mx-auto mb-6 broker-logo">
+                        <img src="https://placehold.co/120x40/000000/FFFFFF?text=XM&font=inter&bold" alt="XM Logo" class="h-10 mx-auto mb-6 broker-logo xm-red">
                         <p class="text-white font-semibold text-lg">XM</p><p class="text-3xl font-bold my-4 text-orange-500">$30 Bonus</p><p class="text-gray-400 text-sm flex-grow mb-6">No deposit required for new clients. Start trading with a free bonus.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
                     <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative" style="transition-delay: 150ms;"><span class="absolute top-4 right-4 bg-gray-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#2</span>
-                        <img src="icmarkets_logo.png" alt="IC Markets Logo" class="h-10 mx-auto mb-6 broker-logo">
-                        <p class="text-white font-semibold text-lg">IC Markets</p><p class="text-3xl font-bold my-4 text-orange-500">Low Spreads</p><p class="text-gray-400 text-sm flex-grow mb-6">Benefit from raw spreads starting from 0.0 pips on major pairs.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
+                        <img src="https://placehold.co/120x40/FFFFFF/000000?text=XTB&font=inter&bold" alt="XTB Logo" class="h-10 mx-auto mb-6 broker-logo xtb-red">
+                        <p class="text-white font-semibold text-lg">XTB</p><p class="text-3xl font-bold my-4 text-orange-500">Low Spreads</p><p class="text-gray-400 text-sm flex-grow mb-6">Benefit from raw spreads starting from 0.0 pips on major pairs.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
                     <div class="glass-card p-8 rounded-xl flex flex-col text-center transition-all duration-300 hover:border-indigo-500 hover:scale-105 scroll-target relative" style="transition-delay: 300ms;"><span class="absolute top-4 right-4 bg-gray-500 text-white text-sm font-bold w-10 h-10 flex items-center justify-center rounded-full">#3</span>
-                        <img src="fpmarkets_logo.png" alt="FP Markets Logo" class="h-10 mx-auto mb-6 broker-logo">
-                        <p class="text-white font-semibold text-lg">FP Markets</p><p class="text-3xl font-bold my-4 text-orange-500">Fast Execution</p><p class="text-gray-400 text-sm flex-grow mb-6">Experience ultra-fast trade execution with Equinix NY4 servers.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
+                        <img src="https://placehold.co/120x40/0057b8/FFFFFF?text=RF&font=inter&bold" alt="RoboForex Logo" class="h-10 mx-auto mb-6 broker-logo roboforex-white">
+                        <p class="text-white font-semibold text-lg">RoboForex</p><p class="text-3xl font-bold my-4 text-orange-500">Fast Execution</p><p class="text-gray-400 text-sm flex-grow mb-6">Experience ultra-fast trade execution with Equinix NY4 servers.</p><a href="signup.html" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-lg transition-colors w-full">Choose Broker</a><a href="#" class="text-gray-500 text-xs mt-4 hover:underline">T&Cs Apply</a></div>
                 </div>
                 <div class="mt-12 text-center">
                     <a href="brokers.html" class="text-indigo-400 font-semibold hover:text-white transition-colors">See all 10+ partner brokers →</a>
@@ -203,7 +252,7 @@
             const prizePoolEl = document.getElementById('prize-pool');
             let currentPrize = 1000;
             const prizeInterval = setInterval(() => {
-                currentPrize += Math.random() * 0.15 + 0.05; // Increment by 5-20 cents
+                currentPrize += Math.random() * 0.15 + 0.05;
                 prizePoolEl.textContent = '+$' + currentPrize.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 prizePoolEl.classList.add('prize-flash');
                 setTimeout(() => prizePoolEl.classList.remove('prize-flash'), 500);
@@ -250,14 +299,14 @@
             }, 1000);
 
             const leaderboardData = [
-                { rank: 1, nickname: 'PipHunter', deposit: 250, profit: 255.7, isOnline: true },
-                { rank: 2, nickname: 'ForexMaster', deposit: 5000, profit: 198.2, isOnline: false },
-                { rank: 3, nickname: 'ScalpQueen', deposit: 1000, profit: 155.1, isOnline: true },
-                { rank: 4, nickname: 'TrendRider', deposit: 2500, profit: 120.5, isOnline: false },
-                { rank: 5, nickname: 'CryptoKing', deposit: 9500, profit: 112.4, isOnline: true },
-                { rank: 6, nickname: 'GoldDigger', deposit: 7500, profit: 98.9, isOnline: false },
-                { rank: 7, nickname: 'SwingTraderX', deposit: 500, profit: 85.3, isOnline: true },
-                { rank: 8, nickname: 'DayTraderPro', deposit: 1500, profit: 72.8, isOnline: false },
+                { rank: 1, nickname: 'PipHunter', country: '🇰🇪', deposit: 250, profit: 255.7, isOnline: true },
+                { rank: 2, nickname: 'ForexMaster', country: '🇧🇷', deposit: 950, profit: 198.2, isOnline: false },
+                { rank: 3, nickname: 'ScalpQueen', country: '🇲🇾', deposit: 800, profit: 155.1, isOnline: true },
+                { rank: 4, nickname: 'TrendRider', country: '🇹🇷', deposit: 500, profit: 120.5, isOnline: false },
+                { rank: 5, nickname: 'CryptoKing', country: '🇦🇪', deposit: 990, profit: 112.4, isOnline: true },
+                { rank: 6, nickname: 'GoldDigger', country: '🇳🇬', deposit: 750, profit: 98.9, isOnline: false },
+                { rank: 7, nickname: 'SwingTraderX', country: '🇮🇩', deposit: 400, profit: 85.3, isOnline: true },
+                { rank: 8, nickname: 'DayTraderPro', country: '🇵🇭', deposit: 600, profit: 72.8, isOnline: false },
             ];
 
             const desktopBody = document.getElementById('leaderboard-body-desktop');
@@ -274,7 +323,7 @@
                 desktopBody.innerHTML += `
                     <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
                         <td class="p-4 font-bold text-lg ${rankColor}">${trader.rank}</td>
-                        <td class="p-4"><div class="flex items-center space-x-3"><img src="https://i.pravatar.cc/40?u=${trader.nickname}" alt="avatar" class="w-10 h-10 rounded-full"><div><p class="font-semibold">${trader.nickname}</p></div></div></td>
+                        <td class="p-4"><div class="flex items-center space-x-3"><img src="https://i.pravatar.cc/40?u=${trader.nickname}" alt="avatar" class="w-10 h-10 rounded-full"><div><p class="font-semibold">${trader.nickname} <span class="ml-2">${trader.country}</span></p></div></div></td>
                         <td class="p-4 text-xs font-semibold">${liveIndicator}</td>
                         <td class="p-4 font-medium">$${trader.deposit.toLocaleString()}</td>
                         <td class="p-4 font-semibold text-green-400 text-lg">+${trader.profit.toFixed(1)}%</td>
@@ -288,7 +337,7 @@
                             <div class="flex items-center gap-3">
                                 <span class="font-bold text-2xl ${rankColor}">#${trader.rank}</span>
                                 <img src="https://i.pravatar.cc/40?u=${trader.nickname}" alt="avatar" class="w-10 h-10 rounded-full">
-                                <div><p class="font-semibold">${trader.nickname}</p></div>
+                                <div><p class="font-semibold">${trader.nickname} <span class="ml-2">${trader.country}</span></p></div>
                             </div>
                             ${liveIndicator}
                         </div>
@@ -300,6 +349,50 @@
                         <a href="leaderboard.html" class="mt-4 text-sm bg-gray-600 hover:bg-gray-500 text-white py-2 rounded-md transition-colors w-full inline-block">More</a>
                     </div>`;
             });
+            
+            const weeklyWinners = [
+                { week: 'Week 1, July', nickname: 'ForexLion', country: '🇿🇦', pnl: '+45.2%', prize: 112, deposit: 200 },
+                { week: 'Week 2, July', nickname: 'PipsPioneer', country: '🇧🇼', pnl: '+38.9%', prize: 125, deposit: 250 },
+                { week: 'Week 3, July', nickname: 'MarketFlow', country: '🇹🇭', pnl: '+52.1%', prize: 141, deposit: 150 },
+                { week: 'Week 4, Aug', nickname: 'DesertFox', country: '🇦🇪', pnl: '+61.5%', prize: 155, deposit: 280 },
+            ];
+
+            const weeklyDesktop = document.getElementById('weekly-winners-desktop');
+            const weeklyMobile = document.getElementById('weekly-winners-mobile');
+            
+            weeklyDesktop.innerHTML = '';
+            weeklyMobile.innerHTML = '';
+
+            weeklyWinners.forEach(winner => {
+                weeklyDesktop.innerHTML += `
+                    <tr class="border-b border-white/10">
+                        <td class="p-4 text-sm font-semibold text-gray-400">${winner.week}</td>
+                        <td class="p-4"><div class="flex items-center space-x-3"><img src="https://i.pravatar.cc/40?u=${winner.nickname}" alt="avatar" class="w-10 h-10 rounded-full"><div><p class="font-semibold">${winner.nickname} <span class="ml-2">${winner.country}</span></p></div></div></td>
+                        <td class="p-4 font-medium">$${winner.deposit}</td>
+                        <td class="p-4 font-semibold text-green-400">${winner.pnl}</td>
+                        <td class="p-4 font-bold text-orange-500">$${winner.prize.toFixed(2)}</td>
+                    </tr>`;
+
+                weeklyMobile.innerHTML += `
+                     <div class="border border-white/10 rounded-lg p-4 text-left">
+                        <p class="text-sm font-semibold text-gray-400 mb-2">${winner.week}</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <img src="https://i.pravatar.cc/40?u=${winner.nickname}" alt="avatar" class="w-10 h-10 rounded-full">
+                                <div><p class="font-semibold">${winner.nickname} <span class="ml-2">${winner.country}</span></p></div>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Prize:</p>
+                                <p class="font-bold text-orange-500 text-lg">$${winner.prize.toFixed(2)}</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mt-2 text-center bg-white/5 p-2 rounded-md">
+                            <div><p class="text-xs text-gray-400">Deposit</p><p class="font-semibold text-sm mt-1">$${winner.deposit}</p></div>
+                            <div><p class="text-xs text-gray-400">Profit</p><p class="font-semibold text-green-400 text-sm mt-1">${winner.pnl}</p></div>
+                        </div>
+                    </div>`;
+            });
+
 
             const faqData = [
                 { q: "How do I join the contest?", a: "Simply click the 'Register' button, connect your trading account from one of our partner brokers, and make the minimum required deposit. You will be automatically entered into the current contest round." },
