@@ -14,7 +14,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
-            background-image: linear-gradient(180deg, #000000 0%, #0d1b2a 50%, #1b2f47 100%);
+            background-image: linear-gradient(180deg, #0d1b2a 0%, #1b2f47 100%);
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.05);
@@ -28,7 +28,7 @@
         .super-cents {
             font-size: 0.5em;
             vertical-align: super;
-            margin-left: 2px;
+            margin-left: 1px;
         }
         .modal-overlay {
             transition: opacity 0.3s ease-in-out;
@@ -87,55 +87,55 @@
                         <div class="glass-card p-4 md:p-6 rounded-xl">
                             <div class="text-center">
                                 <h2 class="text-xl font-bold mb-2 text-indigo-400">Current Prize Pool</h2>
-                                <p id="dashboard-prize-pool" class="text-5xl font-bold text-orange-500 transition-all duration-300">$10,000+</p>
+                                <p id="dashboard-prize-pool" class="text-5xl font-bold text-orange-500 transition-all duration-300">$1,000+</p>
                             </div>
                             <div class="relative pt-8 mt-6 border-t border-white/10">
-                                <div class="relative pt-8">
-                                    <div class="flex rounded-full bg-gray-800 h-4">
-                                        <div class="w-2/3 bg-gray-600 rounded-l-full flex items-center justify-center"><span class="text-xs font-semibold text-gray-300">Pre-Contest</span></div>
-                                        <div class="w-1/3 bg-indigo-600 rounded-r-full flex items-center justify-center"><span class="text-xs font-semibold text-white">Contest Month</span></div>
-                                    </div>
-                                    <div id="timeline-marker" class="absolute top-0 h-full flex flex-col items-center">
-                                        <span class="text-xs text-orange-400 mb-1">Today</span>
-                                        <div class="w-1 h-4 bg-orange-400 rounded-full"></div>
-                                    </div>
-                                    <div class="absolute -top-4 h-6 border-l border-gray-700/50" style="left: 33.7%;"></div>
-                                    <div class="absolute -top-4 h-6 border-l border-gray-700/50" style="left: 67.4%;"></div>
-                                    <div class="flex justify-between text-xs text-gray-500 mt-2">
-                                        <span>July 1</span>
-                                        <span>Aug 1</span>
-                                        <span>Sep 1</span>
-                                        <span>Sep 30</span>
-                                    </div>
+                                <div class="flex rounded-full bg-gray-800 h-4">
+                                    <div class="w-2/3 bg-gray-600 rounded-l-full flex items-center justify-center"><span class="text-xs font-semibold text-gray-300">Pre-Contest</span></div>
+                                    <div class="w-1/3 bg-indigo-600 rounded-r-full flex items-center justify-center"><span class="text-xs font-semibold text-white">Contest Month</span></div>
                                 </div>
-                                 <div class="flex justify-center items-center gap-2 text-center mt-6">
-                                    <h3 id="countdown-title" class="text-sm font-semibold text-gray-400">Pre-Contest Ends In:</h3>
-                                    <div class="flex items-center space-x-2 text-lg font-mono">
-                                        <span id="countdown-days">00</span><span class="text-gray-500 text-sm">d</span>
-                                        <span id="countdown-hours">00</span><span class="text-gray-500 text-sm">h</span>
-                                        <span id="countdown-minutes">00</span><span class="text-gray-500 text-sm">m</span>
-                                    </div>
+                                <div id="timeline-marker" class="absolute top-0 h-full flex flex-col items-center pt-5">
+                                    <span class="text-xs text-orange-400 mb-1">Today</span>
+                                    <div class="w-1 h-4 bg-orange-400 rounded-full"></div>
+                                </div>
+                                <div class="absolute top-6 h-6 border-l border-gray-700/50" style="left: 33.7%;"></div>
+                                <div class="absolute top-6 h-6 border-l border-gray-700/50" style="left: 67.4%;"></div>
+                                <div class="flex justify-between text-xs text-gray-500 mt-2">
+                                    <span>July 1</span>
+                                    <span>Aug 1</span>
+                                    <span>Sep 1</span>
+                                    <span>Sep 30</span>
+                                </div>
+                            </div>
+                             <div class="text-center mt-4">
+                                <p id="countdown-title" class="text-sm font-semibold mb-2 text-gray-400">Pre-Contest Ends In</p>
+                                <div class="flex justify-center items-center space-x-2 text-xl font-mono">
+                                    <span id="countdown-days">00</span>
+                                    <span class="text-gray-500">:</span>
+                                    <span id="countdown-hours">00</span>
+                                    <span class="text-gray-500">:</span>
+                                    <span id="countdown-minutes">00</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Key Stats -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                            <div class="glass-card p-4 rounded-xl flex flex-col justify-center text-center h-32">
+                            <div class="glass-card p-6 rounded-xl flex flex-col justify-center items-center text-center h-32">
                                 <p class="text-gray-400 text-sm">Current Balance ($)</p>
-                                <div id="current-balance" class="text-2xl font-bold mt-2 leading-none whitespace-nowrap">0<span class="super-cents">00</span></div>
+                                <p id="current-balance" class="text-3xl font-bold mt-2">0<span class="super-cents">,00</span></p>
                             </div>
-                             <div class="glass-card p-4 rounded-xl flex flex-col justify-center text-center h-32">
+                             <div class="glass-card p-6 rounded-xl flex flex-col justify-center items-center text-center h-32">
                                 <p class="text-gray-400 text-sm">Profit / Loss</p>
                                 <p id="profit-loss" class="text-3xl font-bold mt-2 text-green-400">+0.00%</p>
                             </div>
-                             <div class="glass-card p-4 rounded-xl flex flex-col justify-center text-center h-32">
+                             <div class="glass-card p-6 rounded-xl flex flex-col justify-center items-center text-center h-32">
                                 <p class="text-gray-400 text-sm">Current Rank</p>
                                 <p class="text-3xl font-bold mt-2">#69</p>
                             </div>
-                            <div class="glass-card p-4 rounded-xl flex flex-col justify-center text-center h-32">
+                            <div class="glass-card p-6 rounded-xl flex flex-col justify-center items-center text-center h-32">
                                 <p id="gap-to-leader-label" class="text-gray-400 text-sm">Gap to Leader ($)</p>
-                                <div id="gap-to-leader" class="text-2xl font-bold mt-2 text-yellow-400 leading-none whitespace-nowrap">0<span class="super-cents">00</span></div>
+                                <p id="gap-to-leader" class="text-3xl font-bold mt-2 text-yellow-400">0<span class="super-cents">,00</span></p>
                             </div>
                         </div>
                          <!-- Balance Chart -->
@@ -154,7 +154,7 @@
                             <h2 class="text-xl font-bold mb-4">My Account</h2>
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-4">
-                                    <img src="https://placehold.co/40x40/1a202c/FFFFFF?text=XM" alt="Broker Logo" class="w-10 h-10 rounded-lg">
+                                    <img src="https://placehold.co/40x40/000000/FFFFFF?text=XM&font=inter&bold" alt="Broker Logo" class="w-10 h-10 rounded-lg">
                                     <div>
                                         <p class="font-semibold">XM Global</p>
                                         <p class="text-xs text-gray-400">Account: 10528896</p>
@@ -167,31 +167,8 @@
                         <!-- Mini Leaderboard -->
                         <div class="glass-card p-6 rounded-xl">
                             <h2 class="text-xl font-bold mb-4">Leaderboard</h2>
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3">
-                                        <span class="font-bold text-yellow-400">#1</span>
-                                        <img src="https://i.pravatar.cc/32?u=CryptoKing" class="w-8 h-8 rounded-full" alt="avatar">
-                                        <a href="profile-public.html" class="text-sm font-semibold hover:text-indigo-400">CryptoKing</a>
-                                    </div>
-                                    <span class="text-sm font-semibold text-green-400">+24.57%</span>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3">
-                                        <span class="font-bold text-gray-300">#2</span>
-                                        <img src="https://i.pravatar.cc/32?u=ForexMaster" class="w-8 h-8 rounded-full" alt="avatar">
-                                        <a href="profile-public.html" class="text-sm font-semibold hover:text-indigo-400">ForexMaster</a>
-                                    </div>
-                                    <span class="text-sm font-semibold text-green-400">+19.82%</span>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center gap-3">
-                                        <span class="font-bold text-yellow-600">#3</span>
-                                        <img src="https://i.pravatar.cc/32?u=ScalpQueen" class="w-8 h-8 rounded-full" alt="avatar">
-                                        <a href="profile-public.html" class="text-sm font-semibold hover:text-indigo-400">ScalpQueen</a>
-                                    </div>
-                                    <span class="text-sm font-semibold text-green-400">+15.51%</span>
-                                </div>
+                            <div id="mini-leaderboard" class="space-y-4">
+                                <!-- Populated by JS -->
                             </div>
                         </div>
 
@@ -309,9 +286,40 @@
             const contestEndDate = new Date("Sep 30, 2025 23:59:59");
             const today = new Date("Aug 15, 2025 12:00:00");
 
+             // Prize Pool Animation
+            const prizePoolEl = document.getElementById('dashboard-prize-pool');
+            let currentPrize = 1000;
+            const prizeInterval = setInterval(() => {
+                currentPrize += Math.random() * 0.15 + 0.05;
+                prizePoolEl.textContent = '+$' + currentPrize.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                prizePoolEl.classList.add('prize-flash');
+                setTimeout(() => prizePoolEl.classList.remove('prize-flash'), 500);
+            }, 2000);
+
             // Chart.js Balance Chart
             const ctx = document.getElementById('balanceChart').getContext('2d');
             
+            const miniLeaderboardData = [
+                { rank: 1, nickname: 'PipHunter', country: '🇰🇪', profit: 255.7 },
+                { rank: 2, nickname: 'ForexMaster', country: '🇧🇷', profit: 198.2 },
+                { rank: 3, nickname: 'ScalpQueen', country: '🇲🇾', profit: 155.1 },
+            ];
+
+            const miniLeaderboardContainer = document.getElementById('mini-leaderboard');
+            miniLeaderboardData.forEach(trader => {
+                 const rankColor = trader.rank === 1 ? 'text-yellow-400' : trader.rank === 2 ? 'text-gray-300' : 'text-yellow-600';
+                 miniLeaderboardContainer.innerHTML += `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <span class="font-bold ${rankColor}">#${trader.rank}</span>
+                            <img src="https://i.pravatar.cc/32?u=${trader.nickname}" class="w-8 h-8 rounded-full" alt="avatar">
+                            <a href="profile-public.html" class="text-sm font-semibold hover:text-indigo-400">${trader.nickname} <span class="ml-1">${trader.country}</span></a>
+                        </div>
+                        <span class="text-sm font-semibold text-green-400">+${trader.profit.toFixed(2)}%</span>
+                    </div>
+                 `;
+            });
+
             // Data Generation
             const labels = [];
             const userPnlUSD = [];
@@ -319,48 +327,40 @@
             const leaderPnlPercentData = [];
             
             let currentDate = new Date('2025-07-01');
-            let userDeposit = 1000;
-            let userBalance = 1000;
+            let userDeposit = 350; // User from myRank
+            let userBalance = 350;
             
-            const leaderFinalPnl = 24.57;
+            const leaderFinalPnl = miniLeaderboardData[0].profit;
             
             let currentLeaderPnl = 0;
             while(currentDate <= contestEndDate) {
                 labels.push(currentDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }));
-                
-                if (currentDate.getTime() === new Date('2025-08-01').getTime()) {
-                    userDeposit += 500;
-                    userBalance += 500;
-                }
 
-                const dailyPnl = (Math.random() - 0.48) * userBalance * 0.015; 
+                const dailyPnl = (Math.random() - 0.48) * userBalance * 0.01; 
                 userBalance += dailyPnl;
                 const currentPnl = userBalance - userDeposit;
                 userPnlUSD.push(currentPnl);
                 userPnlPercentData.push((currentPnl/userDeposit)*100);
 
-                // More realistic leader performance with fluctuations
-                const randomFluctuation = (Math.random() - 0.4) * 2; // -0.8 to +1.2
-                currentLeaderPnl += (leaderFinalPnl / labels.length) * 0.5 + randomFluctuation;
-                if(currentLeaderPnl < 0) currentLeaderPnl = 0; // Leader never loses for MVP
+                const randomFluctuation = (Math.random() - 0.4) * 2;
+                currentLeaderPnl += (leaderFinalPnl / (labels.length * 2)) + randomFluctuation;
+                if (currentLeaderPnl < 0) currentLeaderPnl = 0;
                 leaderPnlPercentData.push(currentLeaderPnl);
-
 
                 currentDate.setDate(currentDate.getDate() + 3);
             }
-             // Ensure final leader PnL matches the leaderboard for consistency
             leaderPnlPercentData[leaderPnlPercentData.length - 1] = leaderFinalPnl;
-
-
-            function formatCurrencyForStat(value) {
-                const parts = value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}).split('.');
-                const integerPart = parts[0].replace(/,/g, '&thinsp;');
-                return `${integerPart}<span class="super-cents">${parts[1]}</span>`;
-            }
             
             const finalUserBalance = userBalance;
             const finalUserPnlPercent = userPnlPercentData[userPnlPercentData.length - 1];
             const finalLeaderPnlPercent = leaderPnlPercentData[leaderPnlPercentData.length - 1];
+            
+            function formatCurrencyForStat(value) {
+                const parts = value.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}).split('.');
+                const integerPart = parts[0].replace(/,/g, ' ');
+                const decimalPart = parts[1];
+                return `${integerPart}<span class="super-cents">,${decimalPart}</span>`;
+            }
 
             document.getElementById('current-balance').innerHTML = formatCurrencyForStat(finalUserBalance);
 
@@ -369,6 +369,7 @@
             profitLossEl.classList.toggle('text-green-400', finalUserPnlPercent >= 0);
             profitLossEl.classList.toggle('text-red-400', finalUserPnlPercent < 0);
             
+            // Logic assumes leader is always ahead for MVP
             const pnlPercentDifference = finalLeaderPnlPercent - finalUserPnlPercent;
             const gapToLeaderUSD = (pnlPercentDifference / 100) * userDeposit;
             document.getElementById('gap-to-leader').innerHTML = formatCurrencyForStat(gapToLeaderUSD);
@@ -479,34 +480,25 @@
                 }
             });
 
-            // Timeline & Countdown Logic & Prize Pool
-            const countdownTitle = document.getElementById('countdown-title');
+            // Timeline & Countdown Logic
+            const countdownTitleEl = document.getElementById('countdown-title');
             const timelineMarker = document.getElementById('timeline-marker');
-            const prizePoolEl = document.getElementById('dashboard-prize-pool');
-            let currentPrize = 15000;
             
             const totalDuration = contestEndDate.getTime() - startDate.getTime();
 
             const masterInterval = setInterval(function() {
-                // Prize Pool Animation
-                currentPrize += Math.random() * 15 + 2;
-                prizePoolEl.textContent = '$' + Math.floor(currentPrize).toLocaleString() + '+';
-                prizePoolEl.classList.add('prize-flash');
-                setTimeout(() => prizePoolEl.classList.remove('prize-flash'), 500);
-
-                // Countdown Logic
                 const now = new Date(); 
                 let targetDate, titleText;
 
                 if (now < contestStartDate) {
                     targetDate = contestStartDate;
-                    titleText = "Pre-Contest Ends In:";
+                    titleText = "Pre-Contest Ends In";
                 } else {
                     targetDate = contestEndDate;
-                    titleText = "Contest Ends In:";
+                    titleText = "Contest Ends In";
                 }
                 
-                countdownTitle.textContent = titleText;
+                countdownTitleEl.textContent = titleText;
                 const distance = targetDate.getTime() - now.getTime();
 
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -517,7 +509,6 @@
                 document.getElementById("countdown-hours").innerText = String(hours).padStart(2, '0');
                 document.getElementById("countdown-minutes").innerText = String(minutes).padStart(2, '0');
 
-                // Update timeline marker based on "today" variable
                 const elapsed = today.getTime() - startDate.getTime();
                 let progress = (elapsed / totalDuration) * 100;
                 if (progress < 0) progress = 0;
@@ -526,11 +517,10 @@
 
                 if (distance < 0 && now > contestEndDate) {
                     clearInterval(masterInterval);
-                    countdownTitle.textContent = "Contest Has Ended";
+                    countdownTitleEl.textContent = "Contest Has Ended";
                 }
-            }, 3000); // One interval for both prize and time
+            }, 1000);
         });
     </script>
 </body>
 </html>
-
