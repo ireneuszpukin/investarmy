@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share & Earn - InvestArmy</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            background-image: linear-gradient(180deg, #0d1b2a 0%, #1b2f47 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .step-number {
+            background-color: #4f46e5;
+        }
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #4f46e5;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        #profile-menu {
+            transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="text-white antialiased">
+
+    <!-- Header -->
+    <header id="header" class="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/50 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold flex items-center gap-2">
+                <span>InvestArmy</span>
+                <span class="w-3 h-3 bg-orange-500 rounded-full"></span>
+            </a>
+            <div class="relative">
+                <div id="profile-button" class="flex items-center gap-4 cursor-pointer">
+                    <span class="text-sm text-gray-400 hidden sm:block">Welcome, trader-john!</span>
+                    <img src="https://i.pravatar.cc/40?u=trader-john" alt="avatar" class="w-10 h-10 rounded-full border-2 border-indigo-500">
+                </div>
+                <!-- Dropdown Menu -->
+                <div id="profile-menu" class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg py-1 z-50 opacity-0 transform scale-95 pointer-events-none">
+                    <a href="profile-dashboard.html" class="block px-4 py-2 text-sm text-indigo-400">My Dashboard</a>
+                    <a href="index.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Contest</a>
+                    <a href="brokers.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Brokers</a>
+                    <a href="leaderboard.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Leaderboard</a>
+                    <div class="border-t border-gray-700 my-1"></div>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700">Settings</a>
+                    <a href="index.html" class="block px-4 py-2 text-sm text-red-400 hover:bg-gray-700">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 flex items-center justify-center min-h-[80vh]">
+        <div class="max-w-3xl w-full">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold">Get $70 Free to Join the Contest</h1>
+                <p class="text-gray-400 mt-2">Complete the steps below to get a $70 credit and start competing with a $100 account!</p>
+            </div>
+            
+            <div id="verification-process" class="space-y-6">
+                <!-- Step 1: Share -->
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="step-number w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                        <div>
+                            <h2 class="text-xl font-bold">Share Your Participation</h2>
+                            <p class="text-sm text-gray-400">Share on at least 3 platforms. Make sure your post is public.</p>
+                        </div>
+                    </div>
+                    <div class="pl-0 md:pl-12">
+                        <!-- Shareable Card -->
+                        <div class="glass-card rounded-lg overflow-hidden border border-indigo-500/50 p-6 flex flex-col items-center text-center">
+                            <div class="text-5xl mb-4">🏆</div>
+                            <h3 class="text-2xl font-bold">I'm In! Joining the InvestArmy Trading Contest!</h3>
+                            <div class="w-full bg-gray-800/50 rounded-lg p-4 my-6 text-left">
+                                <div class="flex items-center gap-4">
+                                    <img src="https://i.pravatar.cc/48?u=trader-john" alt="avatar" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <p class="font-bold">trader-john</p>
+                                        <p class="text-sm text-gray-400">Aiming for the top spot!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p id="share-text" class="text-lg text-gray-200 mt-2">
+                                Join me in the competition! Win weekly prizes up to <span class="font-bold text-orange-400">+$1000</span> and get up to <span class="font-bold text-green-400">$100</span> to start trading.
+                            </p>
+                             <div class="flex flex-wrap justify-center gap-3 mt-6">
+                                <button id="copy-btn" class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">Copy Text & Image</button>
+                                <a href="#" class="bg-sky-500 hover:bg-sky-400 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">Share on X</a>
+                                <a href="#" class="bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">Facebook</a>
+                                <a href="#" class="bg-pink-600 hover:bg-pink-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">Instagram</a>
+                                <a href="#" class="bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm border border-gray-600">TikTok</a>
+                                <a href="#" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-2 px-4 rounded-lg transition-colors text-sm">YouTube</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Submit Links -->
+                <div class="glass-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="step-number w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                        <div>
+                            <h2 class="text-xl font-bold">Submit Your Post Links</h2>
+                            <p class="text-sm text-gray-400">Paste the links to your three public posts below.</p>
+                        </div>
+                    </div>
+                    <div class="pl-0 md:pl-12 space-y-4">
+                        <input type="text" id="link1" class="w-full bg-gray-900/50 border border-gray-700 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="https://x.com/your-post-link">
+                        <input type="text" id="link2" class="w-full bg-gray-900/50 border border-gray-700 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="https://facebook.com/your-post-link">
+                        <input type="text" id="link3" class="w-full bg-gray-900/50 border border-gray-700 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="https://instagram.com/your-post-link">
+                    </div>
+                </div>
+
+                <!-- Step 3: Verify -->
+                <div class="text-center pt-4">
+                     <button id="verify-posts-btn" class="bg-green-600 hover:bg-green-500 text-white font-semibold py-3 px-8 rounded-lg transition-colors text-base flex items-center justify-center mx-auto">
+                        <span>Submit for Verification</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="success-message" class="hidden text-center glass-card p-8 rounded-xl">
+                <div class="text-6xl mb-4">🎉</div>
+                <h2 class="text-3xl font-bold">Verification Submitted!</h2>
+                <p class="text-gray-400 mt-2">Our team will review your posts. Your <span class="font-bold text-white">$70 bonus</span> will be added to your account within 24 hours.</p>
+                <a href="profile-dashboard.html" class="mt-6 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2 px-6 rounded-lg transition-colors inline-block">Back to Dashboard</a>
+            </div>
+
+        </div>
+    </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileButton = document.getElementById('profile-button');
+            const profileMenu = document.getElementById('profile-menu');
+
+            if (profileButton) {
+                profileButton.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const isHidden = profileMenu.classList.contains('opacity-0');
+                    if (isHidden) {
+                        profileMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                        profileMenu.classList.add('opacity-100', 'scale-100');
+                    } else {
+                        profileMenu.classList.add('opacity-0', 'scale-95');
+                        setTimeout(() => {
+                             profileMenu.classList.add('pointer-events-none');
+                        }, 200);
+                    }
+                });
+            }
+            
+            document.addEventListener('click', function(event) {
+                if (profileMenu && !profileMenu.classList.contains('opacity-0')) {
+                    profileMenu.classList.add('opacity-0', 'scale-95');
+                    setTimeout(() => {
+                        profileMenu.classList.add('pointer-events-none');
+                    }, 200);
+                }
+            });
+
+            const copyBtn = document.getElementById('copy-btn');
+            const shareText = document.getElementById('share-text').innerText;
+            
+            copyBtn.addEventListener('click', () => {
+                // In a real app, you would generate an image from the card element
+                // For this MVP, we just copy the text.
+                navigator.clipboard.writeText(shareText).then(() => {
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy Text & Image';
+                    }, 2000);
+                });
+            });
+
+            const verifyBtn = document.getElementById('verify-posts-btn');
+            const link1 = document.getElementById('link1');
+            const link2 = document.getElementById('link2');
+            const link3 = document.getElementById('link3');
+            
+            verifyBtn.addEventListener('click', () => {
+                if (link1.value.trim() === '' || link2.value.trim() === '' || link3.value.trim() === '') {
+                    alert('Please submit links to three posts.');
+                    return;
+                }
+
+                verifyBtn.innerHTML = '<div class="loader"></div>';
+                verifyBtn.disabled = true;
+
+                setTimeout(() => {
+                    document.getElementById('verification-process').classList.add('hidden');
+                    document.getElementById('success-message').classList.remove('hidden');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
+
