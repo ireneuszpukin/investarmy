@@ -83,6 +83,18 @@
                             <p class="text-gray-400 mt-2">Welcome back, trader-john! Here's your performance in the <span class="font-semibold text-orange-500">Summer 2025</span> edition.</p>
                         </div>
 
+                        <!-- Share and Earn Section -->
+                        <div class="glass-card p-6 rounded-xl border-2 border-indigo-500 flex flex-col md:flex-row items-center text-center md:text-left gap-6">
+                            <div class="text-6xl">🎁</div>
+                            <div>
+                                <h2 class="text-2xl font-bold">You're only $70 short of joining!</h2>
+                                <p class="text-gray-400 mt-1">You already have a <span class="font-bold text-white">$30 bonus</span> from XM. Get the remaining <span class="font-bold text-white">$70</span> for free by sharing a post about our contest.</p>
+                            </div>
+                            <a href="share-and-earn.html" class="bg-orange-500 hover:bg-orange-400 text-white font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap w-full md:w-auto">
+                                Get $70 For Free
+                            </a>
+                        </div>
+
                         <!-- Prize Pool & Timeline -->
                         <div class="glass-card p-4 md:p-6 rounded-xl">
                             <div class="text-center">
@@ -369,7 +381,6 @@
             profitLossEl.classList.toggle('text-green-400', finalUserPnlPercent >= 0);
             profitLossEl.classList.toggle('text-red-400', finalUserPnlPercent < 0);
             
-            // Logic assumes leader is always ahead for MVP
             const pnlPercentDifference = finalLeaderPnlPercent - finalUserPnlPercent;
             const gapToLeaderUSD = (pnlPercentDifference / 100) * userDeposit;
             document.getElementById('gap-to-leader').innerHTML = formatCurrencyForStat(gapToLeaderUSD);
@@ -524,3 +535,4 @@
     </script>
 </body>
 </html>
+
